@@ -1,7 +1,14 @@
 <!-- missionlist.component.html -->
-<div *ngFor="let launch of launches">
-    <h2>{{ launch.mission_name }}</h2>
-    <p>{{ launch.launch_year }}</p>
-    <p>{{ launch.details }}</p>
-    <img [src]="launch.links.mission_patch_small" alt="{{ launch.mission_name }}">
-  </div>
+<h1 class="text-4xl font-bold text-center my-8">SpaceX Mission Launch List</h1>
+<div class="flex flex-col gap-4 ">
+    <mat-card class="bg-blue-500 flex flex-col p-4 shadow-lg w-full" *ngFor="let launch of launches">
+      <img mat-card-image [src]="launch.links.mission_patch_small" alt="{{ launch.mission_name }}" class="w-20 h-20 object-cover self-start">
+      <mat-card-header class="mt-4 ">
+          <mat-card-title class="text-xl font-bold text-blue-700">{{ launch.mission_name }}</mat-card-title>
+          <mat-card-subtitle class="text-lg font-semibold text-blue-500">{{ launch.launch_year }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+          <p class="text-sm text-gray-700">{{ launch.details }}</p>
+      </mat-card-content>
+    </mat-card>
+</div>

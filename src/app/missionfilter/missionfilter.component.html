@@ -1,0 +1,44 @@
+<h1 class="text-4xl font-bold text-center my-8">SpaceX Mission Launch Filter</h1>
+<div class="flex">
+  <div class="w-1/4 p-4">
+    <!-- Year Filter -->
+    <div class="mb-4">
+      <label for="yearSelect" class="text-blue-500 font-bold underline">Year:</label>
+      <select id="yearSelect" [(ngModel)]="year" (change)="applyFilter()">
+        <option value="">Select</option>
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+      
+    <!-- Launch Success Filter -->
+    <div class="mb-2">
+      <label class="text-blue-500 font-bold underline">Launch Success:</label>
+      <select [(ngModel)]="launch_success" (change)="applyFilter()">
+        <option value="">Select</option>
+        <option [value]="true">True</option>
+        <option [value]="false">False</option>
+      </select>
+    </div>
+  
+    <!-- Landing Success Filter -->
+    <div>
+      <label class="text-blue-500 font-bold underline">Landing Success:</label>
+      <select [(ngModel)]="landing_success" (change)="applyFilter()">
+        <option value="">Select</option>
+        <option [value]="true">True</option>
+        <option [value]="false">False</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Grid of Missions -->
+  <div class="grid grid-cols-3 gap-4">
+    <div *ngFor="let launch of filteredLaunches" class="bg-white shadow-md rounded p-4 flex flex-col items-center">
+      <img [src]="launch.links.mission_patch_small" alt="{{ launch.mission_name }}" class="w-auto h-auto max-w-xs"> 
+      <h5 class="text-xl font-bold mt-2">{{ launch.mission_name }}</h5>
+      <p class="text-gray-600">{{ launch.launch_year }}</p>
+      <p class="text-gray-600">Launch Success: {{ launch.launch_success ? 'Yes' : 'No' }}</p>
+      <p class="text-gray-600">Landing Success: {{ launch.rocket.first_stage.cores[0].land_success ? 'Yes' : 'No' }}</p>
+    </div>
+  </div>
+</div>
