@@ -10,5 +10,8 @@
       <mat-card-content>
           <p class="text-sm text-gray-700">{{ launch.details }}</p>
       </mat-card-content>
+      <mat-card-actions>
+          <button mat-button [routerLink]="['/view-details', launch.flight_number]">View Details</button>
+      </mat-card-actions>
     </mat-card>
 </div>

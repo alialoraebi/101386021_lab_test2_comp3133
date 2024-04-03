@@ -3,12 +3,13 @@ import { SpacexApiService } from '../SpaceX-API/spacex-api.service';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-missionlist',
   standalone: true,
-  imports: [CommonModule, MatCardModule], 
+  imports: [CommonModule, MatCardModule, RouterModule], 
   providers: [SpacexApiService, HttpClient],
   templateUrl: './missionlist.component.html',
   styleUrls: ['./missionlist.component.css'],
