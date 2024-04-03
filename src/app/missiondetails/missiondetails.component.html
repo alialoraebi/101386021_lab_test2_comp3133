@@ -1,9 +1,9 @@
 <h1 class="text-4xl font-bold text-center my-8">SpaceX Mission Details</h1>
-<div *ngIf="launch" class="flex">
-    <mat-card class="flex-1 p-4">
-      <img mat-card-image [src]="launch.links.mission_patch" alt="{{ launch.mission_name }}">
+<div *ngIf="launch" class="flex justify-center">
+    <mat-card class="p-2">
+      <img mat-card-image [src]="launch.links.mission_patch" alt="{{ launch.mission_name }}" class="w-64 h-64 object-cover mx-auto" >
     </mat-card>
-    <mat-card class="flex-1 p-4">
+    <mat-card class="p-2">
       <mat-card-title>{{ launch.mission_name }}</mat-card-title>
       <mat-card-content>
         <p>Launch Year: {{ launch.launch_year }}</p>
